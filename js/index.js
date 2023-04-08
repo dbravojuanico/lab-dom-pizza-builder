@@ -96,12 +96,46 @@ function renderGlutenFreeCrust() {
   }
 }
 
-function renderButtons() {}
+//function renderButtons() {}
 
 function renderPrice() {
-  
-
-  
+  let peperoniTag = document.querySelector(".peperoni-tag")
+  let mushromsTag = document.querySelector(".mushrooms-tag")
+  let peppersTag = document.querySelector(".peppers-tag")
+  let sauceTag = document.querySelector(".sauce-tag")
+  let crustTag = document.querySelector(".crust-tag")
+  let totalPrice = 10
+  if(state.pepperoni) {
+    peperoniTag.style.display = "block"
+    totalPrice += 1
+  } else {
+    peperoniTag.style.display = "none"
+  }
+  if(state.mushrooms) {
+    mushromsTag.style.display = "block"
+    totalPrice += 1
+  } else {
+    mushromsTag.style.display = "none"
+  }
+  if(state.greenPeppers) {
+    peppersTag.style.display = "block"
+    totalPrice += 1
+  } else {
+    peppersTag.style.display = "none"
+  }
+  if(state.whiteSauce) {
+    sauceTag.style.display = "block"
+    totalPrice += 3
+  } else {
+    sauceTag.style.display = "none"
+  }
+  if(state.glutenFreeCrust) {
+    crustTag.style.display = "block"
+    totalPrice += 5
+  } else {
+    crustTag.style.display = "none"
+  }
+  document.querySelector(".total-price").innerText = `$${totalPrice}`
 }
 
 renderEverything();
